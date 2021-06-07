@@ -1,0 +1,50 @@
+{
+    "name": "svelte-component-library-template",
+    "version": "0.0.1",
+    "description": "My Svelte Components",
+    "svelte": "src/index.js",
+    "private": true,
+    "scripts": {
+        "build": "rollup -c",
+        "autobuild": "rollup -c -w",
+        "webserver": "sirv public --port:5001 --single --dev",
+        "dev": "run-p webserver autobuild",
+        "lint": "eslint -c .eslintrc.js --ext .js,.svelte,.html .",
+        "format:svelte": "prettier --parser html --check **/*.svelte",
+        "format:js": "prettier --check **/*.js",
+        "format": "run-p format:svelte format:js",
+        "test": "nightwatch"
+    },
+    "devDependencies": {
+        "chromedriver": "^90.0.0",
+        "eslint": "^7.26.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-html": "^6.1.2",
+        "eslint-plugin-svelte3": "^3.2.0",
+        "husky": "^6.0.0",
+        "nightwatch": "^1.6.4",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.3.0",
+        "prettier-plugin-svelte": "^2.3.0",
+        "rollup": "^2.48.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-livereload": "^2.0.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-svelte": "^7.1.0",
+        "sirv-cli": "^1.0.11",
+        "svelte": "^3.38.2"
+    },
+    "keywords": [
+        "svelte",
+        "component",
+        "template"
+    ],
+    "files": [
+        "src"
+    ],
+    "husky": {
+        "hooks": {
+            "pre-commit": "run-s format lint"
+        }
+    }
+}
